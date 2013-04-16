@@ -36,13 +36,19 @@ import org.apache.lucene.search.spans.*;
 public class LearnScraper {
 
     protected AsyncHttpClient client;
+    protected LinkedList<Exemplar> training;
+    protected LinkedList<Exemplar> testing;
 
     public LearnScraper() {
 	Builder bdr = new Builder();
 	bdr.setRequestTimeoutInMs(10000)
 	    .setFollowRedirects(true);
 	client = new AsyncHttpClient(bdr.build());
+
+	training = new LinkedList<E
     }
+
+    public void train_on(Exemplar ex)
 
     public Response fetch_tweet(String screen_name, String id_str) {
 	String url_string = "https://twitter.com/"+screen_name+"/status/"+id_str;
